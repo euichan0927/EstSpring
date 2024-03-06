@@ -40,7 +40,7 @@ public class BookController {
 	}
 	@GetMapping("/books/{id}")
 	public String detail(@PathVariable("id") String id,Model model){
-		model.addAttribute("book",bookRepository.getBook(id));
+		model.addAttribute("book",bookRepository.findBookById(id));
 		log.info("id = "+ id);
 		return "bookDetail";
 	}

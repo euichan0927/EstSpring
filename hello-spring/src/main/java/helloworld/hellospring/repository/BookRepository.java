@@ -30,12 +30,7 @@ public class BookRepository {
 	public void addBook(Book book){
 		bookMap.put(book.getId(),book);
 	}
-	public Book getBook(String id){
-		for(Map.Entry<String,Book> book : bookMap.entrySet()){
-			if(book.getKey().equals(id)){
-				return book.getValue();
-			}
-		}
-		return null;
+	public Book findBookById(String id){
+		return bookMap.get(id);
 	}
 }
