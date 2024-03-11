@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.estsoft.blogproject.repository.ArticleMapper">
+    <!-- 모든 Article 요청    -->
+    <select id="selectAllArticles" resultType="com.estsoft.blogproject.domain.Article">
+        SELECT * FROM article
+    </select>
+    <!-- 특정 id 값의 Article 요청-->
+    <select id="selectArticle" resultType="com.estsoft.blogproject.domain.Article">
+        SELECT * FROM article WHERE id =#{id}
+    </select>
+
+    <!-- Article 추가    -->
+    <insert id="addArticle" parameterType="com.estsoft.blogproject.domain.Article" useGeneratedKeys="true">
+        INSERT INTO article(title,content) VALUES (#{title},#{content})
+    </insert>
+    <!-- Article 수정    -->
+    <update id="updateArticle" parameterType="com.estsoft.blogproject.domain.Article">
+        UPDATE article SET title=#{title} , content=#{content} WHERE id=#{id}
+    </update>
+    <!-- Article 삭제    -->
+    <delete id="deleteArticle" parameterType="Long">
+        DELETE FROM article WHERE id=#{id}
+    </delete>
+</mapper>
