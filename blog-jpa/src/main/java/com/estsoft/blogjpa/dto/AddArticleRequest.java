@@ -1,5 +1,7 @@
 package com.estsoft.blogjpa.dto;
 
+import java.time.LocalDateTime;
+
 import com.estsoft.blogjpa.domain.Article;
 
 import lombok.AllArgsConstructor;
@@ -14,6 +16,7 @@ import lombok.Setter;
 public class AddArticleRequest {
 	private String title;
 	private String content;
+	private LocalDateTime createdAt;
 
 	public Article toEntity(){
 		return Article.builder()
