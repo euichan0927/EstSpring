@@ -5,8 +5,10 @@ import java.time.LocalDateTime;
 import com.estsoft.blogjpa.domain.Article;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Getter
+@NoArgsConstructor
 public class ArticleViewResponse {
 	private Long id;
 	private String title;

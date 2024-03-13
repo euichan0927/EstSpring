@@ -4,7 +4,9 @@ import java.util.List;
 
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
+import com.estsoft.blogjpa.ExampleAPIClient;
 import com.estsoft.blogjpa.domain.Article;
 import com.estsoft.blogjpa.dto.AddArticleRequest;
 import com.estsoft.blogjpa.repository.ArticleRepository;
@@ -36,5 +38,9 @@ public class ArticleService {
 	public void updateArticle(Long id,AddArticleRequest request){
 		Article article = articleRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("not found id"));
 		article.update(request.getTitle(), request.getContent());
+	}
+
+	public void RestArticle(@RequestBody ExampleAPIClient exampleAPIClient){
+
 	}
 }
