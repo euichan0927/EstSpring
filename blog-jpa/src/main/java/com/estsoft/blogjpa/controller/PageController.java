@@ -19,7 +19,7 @@ public class PageController {
 		person.setId(1L);
 		person.setName("김의찬");
 		person.setAge(26);
-		person.setHobbies(List.of("헬스","음악감상"));
+		// person.setHobbies(List.of("헬스","음악감상"));
 
 		model.addAttribute("person",person);
 		model.addAttribute("today", LocalDateTime.now());
