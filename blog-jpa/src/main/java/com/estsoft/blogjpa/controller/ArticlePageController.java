@@ -68,4 +68,5 @@ public class ArticlePageController {
 		articleService.save(addArticleRequest);
 		return "articleList";
 	}
+
 }
