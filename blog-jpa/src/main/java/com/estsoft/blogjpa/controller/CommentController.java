@@ -9,8 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.estsoft.blogjpa.domain.Article;
-import com.estsoft.blogjpa.domain.Comment;
+
 import com.estsoft.blogjpa.dto.CommentDTO;
 import com.estsoft.blogjpa.service.CommentService;
 
