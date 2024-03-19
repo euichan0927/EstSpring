@@ -6,7 +6,6 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import com.estsoft.blogjpa.ExampleAPIClient;
 import com.estsoft.blogjpa.domain.Article;
 import com.estsoft.blogjpa.dto.AddArticleRequest;
 import com.estsoft.blogjpa.repository.ArticleRepository;
@@ -40,7 +39,7 @@ public class ArticleService {
 		article.update(request.getTitle(), request.getContent());
 	}
 
-	public void RestArticle(@RequestBody ExampleAPIClient exampleAPIClient){
-
-	}
+	// public void RestArticle(@RequestBody ExampleAPIClient exampleAPIClient){
+	//
+	// }
 }
