@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.estsoft.blogjpa.domain.Article;
 import com.estsoft.blogjpa.dto.AddArticleRequest;
@@ -19,7 +20,7 @@ import com.estsoft.blogjpa.service.ArticleService;
 
 import jakarta.transaction.Transactional;
 
-@Controller
+@RestController
 public class ArticlePageController {
 	private ArticleService articleService;
 
@@ -46,6 +47,7 @@ public class ArticlePageController {
 	public void deleteArticle(@PathVariable Long id){
 		articleService.deleteArticle(id);
 	}
+
 	@GetMapping("/new-article")
 	public String newArticle(@RequestParam(required = false) Long id,Model model){
 		if(id==null){
