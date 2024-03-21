@@ -13,17 +13,23 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MockMvcBuilder;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
-
 import com.estsoft.blogjpa.domain.Article;
 import com.estsoft.blogjpa.domain.User;
+import com.estsoft.blogjpa.dto.AddArticleRequest;
 import com.estsoft.blogjpa.dto.AddUserRequest;
 import com.estsoft.blogjpa.repository.ArticleRepository;
 import com.estsoft.blogjpa.repository.UserRepository;
+
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.ResultActions;
+import org.springframework.http.MediaType;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 
 @AutoConfigureMockMvc
 @SpringBootTest
@@ -77,4 +83,26 @@ class UserControllerTest {
 		assertFalse(optionalArticle.isPresent());
 
 	}
+
+	@Test
+	public void updateArticle() throws Exception {
+		ObjectMapper objectMapper = new ObjectMapper();
+
+		// Given
+		Article article = new Article("title", "content");
+		articleRepository.save(article);
+		Long id = article.getId(); // 새로 생성된 Article의 ID를 가져옵니다.
+
+		// When
+		AddArticleRequest request = new AddArticleRequest("updated title", "updated content");
+
+		ResultActions resultActions = mockMvc.perform(put("/thymeleaf/article/{id}", id)
+			.content(objectMapper.writeValueAsString(request))
+			.contentType(MediaType.APPLICATION_JSON));
+
+		// Then
+		resultActions.andExpect(status().isOk());
+		// 본문 내용 대신 상태 코드만 확인
+	}
+
 }

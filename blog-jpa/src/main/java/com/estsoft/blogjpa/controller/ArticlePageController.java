@@ -2,6 +2,7 @@ package com.estsoft.blogjpa.controller;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -61,10 +62,12 @@ public class ArticlePageController {
 
 	@Transactional
 	@PutMapping("thymeleaf/article/{id}")
-	public void updateArticle(@PathVariable Long id,@RequestBody AddArticleRequest addArticleRequest){
+	public ResponseEntity<Article> updateArticle(@PathVariable Long id, @RequestBody AddArticleRequest addArticleRequest) {
 		Article article = articleService.getArticle(id);
 		article.update(addArticleRequest.getTitle(), addArticleRequest.getContent());
+		return ResponseEntity.ok(article); // 업데이트된 Article 객체 반환
 	}
+
 	@PostMapping("thymeleaf/article")
 	public String addArticle(@RequestBody AddArticleRequest addArticleRequest){
 		articleService.save(addArticleRequest);
