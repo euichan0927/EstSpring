@@ -45,4 +45,10 @@ public class WebSecurityConfig {
 	public BCryptPasswordEncoder bCryptPasswordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
+	
+	@Bean
+	public WebSecurityCustomizer configure() {      // 스프링 시큐리티 기능 비활성화
+		return web -> web.ignoring().requestMatchers("/static/**", "/swagger-ui/**", "/v3/api-docs/**", "/swagger-ui.html");
+	}
+
 }
