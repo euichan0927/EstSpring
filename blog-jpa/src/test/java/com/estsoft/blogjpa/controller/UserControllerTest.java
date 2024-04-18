@@ -25,9 +25,6 @@ import com.estsoft.blogjpa.dto.AddUserRequest;
 import com.estsoft.blogjpa.repository.ArticleRepository;
 import com.estsoft.blogjpa.repository.UserRepository;
 
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.ResultActions;
-import org.springframework.http.MediaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 

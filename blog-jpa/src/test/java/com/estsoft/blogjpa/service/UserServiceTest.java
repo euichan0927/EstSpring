@@ -1,6 +1,5 @@
 package com.estsoft.blogjpa.service;
 
-import static org.assertj.core.api.AssertionsForClassTypes.*;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
@@ -14,6 +13,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.estsoft.blogjpa.domain.User;
+import com.estsoft.blogjpa.domain.User1;
 import com.estsoft.blogjpa.dto.AddUserRequest;
 import com.estsoft.blogjpa.repository.UserRepository;
 
