@@ -39,6 +39,9 @@ public class ArticleService {
 		article.update(request.getTitle(), request.getContent());
 	}
 
+	public void findById(long l) {
+	}
+
 	// public void RestArticle(@RequestBody ExampleAPIClient exampleAPIClient){
 	//
 	// }
