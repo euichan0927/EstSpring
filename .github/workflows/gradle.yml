@@ -16,7 +16,6 @@ jobs:
     runs-on: ubuntu-latest 
 
     steps:
-      ...
       - name: Make zip file
         run: zip -r ./$GITHUB_SHA.zip .
         shell: bash
