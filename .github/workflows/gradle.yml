@@ -2,13 +2,13 @@ name: github-action-workflow
 
 on:
   push:
-    branches: [ develop ]
+    branches: [ main ]
   pull_request:
-    branches: [ develop ]
+    branches: [ main ]
   workflow_dispatch:
 
 env:
-  S3_BUCKET_NAME: S3 버킷 이름
+  S3_BUCKET_NAME: content-i-like1
   AWS_REGION: ap-northeast-2
 
 jobs:
